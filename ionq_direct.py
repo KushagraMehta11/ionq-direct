@@ -12,7 +12,7 @@ class CreateCircuit():
         qnode (qml.qnode): Quantum circuit function with attributed default qubit qnode
         params (list): List of parameters needed by qnode
         native (bool): If True, use native gates from the qnode, otherwise use the default gates
-    """
+    """#
     # TODO: Implement native gates
 
     def __init__(self, qnode, params, native=False):
@@ -72,8 +72,14 @@ class CreateCircuit():
                 elif op.name == "ZZ":
                     self.ionq_circuit.append({"gate": "zz", "targets": [op.wires[0], op.wires[1]], "rotation": op.parameters[0]})
             else:
-                raise Exception("Native gates not implemented yet")
-
+                # Native gate implementations
+                if op.name == "GPi":
+                    self.ionq_circuit.append({"gate": "gpi", "target": op.wires[0], "phase": op.parameters[0]})
+                elif op.name == "GPi2":
+                    self.ionq_circuit.append({"gate": "gpi2", "target": op.wires[0], "phase": op.parameters[0]})
+                elif op.name == "MS":
+                    self.ionq_circuit.append({"gate": "ms", "targets": [op.wires[0], op.wires[1]], "phases": op.parameters[:2], "angle": op.parameters[2]})
+                
 class QPUSubmission(CreateCircuit):
 
     def __init__(self, qnode, params, native=False, debiasing=True, shots=1000, 
