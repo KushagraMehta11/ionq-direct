@@ -29,7 +29,7 @@ dev = qml.device("default.qubit", wires=3)
 def ansatz(rots):
     qml.RX(rots[0], wires = 0)
     qml.RX(rots[1], wires = 1)
-    qml.RX(rots[2], wires = 2)
+    qml.RX(rots[2], wires = 2) 
     qml.IsingXX(rots[3], wires = [0,1])
     qml.IsingXX(rots[4], wires = [1,2])
     return qml.state()
