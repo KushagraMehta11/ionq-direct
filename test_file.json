@@ -1,0 +1,70 @@
+{
+  "name": "circuit",
+  "shots": 1000,
+  "target": "simulator",
+  "noise": {
+    "model": "aria-1"
+  },
+  "input": {
+    "qubits": 3,
+    "circuit": [
+      {
+        "gate": "h",
+        "target": 0
+      },
+      {
+        "gate": "h",
+        "target": 1
+      },
+      {
+        "gate": "h",
+        "target": 2
+      },
+      {
+        "gate": "rx",
+        "target": 0,
+        "rotation": 0.1
+      },
+      {
+        "gate": "rx",
+        "target": 1,
+        "rotation": 0.2
+      },
+      {
+        "gate": "rx",
+        "target": 2,
+        "rotation": 0.3
+      },
+      {
+        "gate": "ry",
+        "target": 0,
+        "rotation": 0.4
+      },
+      {
+        "gate": "ry",
+        "target": 1,
+        "rotation": 0.5
+      },
+      {
+        "gate": "ry",
+        "target": 2,
+        "rotation": 0.6
+      },
+      {
+        "gate": "rz",
+        "target": 0,
+        "rotation": 0.7
+      },
+      {
+        "gate": "rz",
+        "target": 1,
+        "rotation": 0.8
+      },
+      {
+        "gate": "rz",
+        "target": 2,
+        "rotation": 0.9
+      }
+    ]
+  }
+}
