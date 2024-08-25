@@ -78,7 +78,7 @@ class CreateCircuit():
                 elif op.name == "GPi2":
                     self.ionq_circuit.append({"gate": "gpi2", "target": op.wires[0], "phase": op.parameters[0]})
                 elif op.name == "MS":
-                    self.ionq_circuit.append({"gate": "ms", "targets": [op.wires[0], op.wires[1]], "phases": op.parameters[:2], "angle": op.parameters[2]})
+                    self.ionq_circuit.append({"gate": "ms", "targets": [op.wires[0], op.wires[1]], "phases": op.parameters[:2], "angle": op.parameters[2], "angle_theta": 0.25})
                 
 class QPUSubmission(CreateCircuit):
 
